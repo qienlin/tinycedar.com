@@ -2,19 +2,18 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
 )
 
-var port = flag.String("port", "1718", "http server port")
+var port = flag.String("port", "8080", "http server port")
 
 func main() {
 	flag.Parse()
-	log.Printf("Http server started successfully on port %s\n", *port)
-
 	http.HandleFunc("/", indexHandler)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", *port), nil))
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
