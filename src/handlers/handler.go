@@ -1,7 +1,13 @@
 package handlers
 
-import ()
+import (
+	"log"
+	"net/http"
+)
 
-type Handler interface {
-	
+type Handler struct {
+}
+
+func (handler *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	log.Printf("ServeHttp...\n")
 }
