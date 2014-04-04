@@ -26,7 +26,7 @@ func handleIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleLogin(w http.ResponseWriter, r *http.Request) {
-	log.Printf("handleLogin\n")
+	log.Printf("handle Login\n")
 	var templ = template.Must(template.New("home").Parse(templates.HomeTemplate()))
 	username := r.FormValue("username")
 	password := r.FormValue("password")
